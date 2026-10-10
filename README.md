@@ -228,7 +228,6 @@ i=1: 0x20 ^ (0xFE ^ 0x76 ^ 0x2F) = 0x87   ✔ 预期 0x87
 
 - 上篇 · D300 固件解析（明文）：<https://github.com/Pinksert/D300-firmware-analysis>
 - B站专栏（D300 上篇）：<https://www.bilibili.com/opus/1257497777850548249>
-
 - B站专栏（D300S 下篇）：<https://www.bilibili.com/opus/1257549137054793745>
 
 ## 免责声明
