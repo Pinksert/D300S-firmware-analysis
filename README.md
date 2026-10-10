@@ -229,8 +229,9 @@ i=1: 0x20 ^ (0xFE ^ 0x76 ^ 0x2F) = 0x87   ✔ 预期 0x87
 - 上篇 · D300 固件解析（明文）：<https://github.com/Pinksert/D300-firmware-analysis>
 - B站专栏（D300 上篇）：<https://www.bilibili.com/opus/1257497777850548249>
 
+- B站专栏（D300S 下篇）：<https://www.bilibili.com/opus/1257549137054793745>
+
 ## 免责声明
 
 本仓库仅用于研究与教育目的，所有固件文件版权归尼康株式会社（Nikon Corporation）所有。请勿将本仓库内容用于任何违反当地法律或厂商服务条款的用途（包括但不限于修改固件、绕过设备保护机制等）。下载即表示你同意仅将资料用于个人学习与研究。
 
-- B站专栏（D300S 下篇）：<https://www.bilibili.com/opus/1257549137054793745>
