@@ -166,7 +166,6 @@ i=1: 0x20 ^ (0xFE ^ 0x76 ^ 0x2F) = 0x87   ✔ 预期 0x87
 #### 6.1 B 固件（主控，Fujitsu FR 架构）
 
 - **实时操作系统**：`Softune REALOS/FR is Realtime OS for FR Family, based on micro-ITRON COPYRIGHT(C) FUJITSU LIMITED 1994-1999` —— 确认主控为富士通 FR 系列 CPU。
-- **分组密码库**：`CIPHERUNICORN-S COPYRIGHT (C) NEC CORPORATION 2006` —— NEC 的 128 位分组密码，用于机身内部数据保护。
 - **图像处理**：`Copyright (c) 2000-2007 by FotoNation. All rights reserved.` / `RedEye Library v.2.10.0.0` —— FotoNation 红眼消除库。
 - **视频功能（D300S 核心升级）**：`1280x720 (16:9)`、`640x424 (3:2)`、`320x216 (3:2)`、麦克风增益选项、HDMI 输出 `480p/576p/720p (Progressive)`、`1080i`。
 - **双卡槽**：`[CF card slot]` / `[SD card slot]`、副卡槽职能设定、卡间复制 —— 对应 CF+SD 双存储。
@@ -176,7 +175,12 @@ i=1: 0x20 ^ (0xFE ^ 0x76 ^ 0x2F) = 0x87   ✔ 预期 0x87
 
 #### 6.2 A 固件（IO 协处理器）
 
-负责测光、对焦、按键等 IO 控制（同平台机型使用 Toshiba TMP19A 类微控制器）。版本 `A 1.02`。
+负责测光、对焦、按键等 IO 控制。版本 `A 1.02`。
+
+- **同样跑 REALOS/FR**：`Softune REALOS/FR is Realtime OS for FR Family …` @`0x07E47A` —— 说明 A 处理器与 B 一样是富士通 FR 系列（该串在 A、B 各出现一次）。早期版本写过的「Toshiba TMP19A 类微控制器」在固件里**没有任何线索**（全文搜索 `Toshiba` / `TMP19` 均为 0 命中），已更正。
+- **NEC CIPHERUNICORN-S**：`CIPHERUNICORN-S COPYRIGHT (C) NEC CORPORATION 2006` @`0x06551C`（在 A 固件，不在 B）。它只能证明这个 128 bit 分组密码库被链进了 A 固件，固件里没有调用点、密钥表或任何说明。**它肯定不是本发布包的加密方式**——本包用的是三层 XOR 密钥流（见第三节「算法还原与解密」），而「用于机身内部数据保护」也只是推测。
+
+> 跨机型扫描显示，这个串的有无与「发布包是否加密」并不相关：D40 / D300 / D90 / D300S 的 A 固件里有，D3 / D3S / D700 里没有；而加密的发布包恰恰包含没有此串的 D3S。详见 [D300 仓库 3.4 节](https://github.com/Pinksert/D300-firmware-analysis#34-关于-cipherunicorn-s结论已更正)。
 
 ### 七、与 D300（非 S）1.11 固件的横向对比
 
